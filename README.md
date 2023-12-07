@@ -46,8 +46,18 @@
 
 ## Fonts
 
-```bash
+```
 yay -S ttf-bitstream-vera ttf-cascadia-code ttf-cascadia-code-nerd ttf-dejavu ttf-firacode-nerd ttf-liberation ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-opensans noto-fonts noto-fonts-emoji
+```
+
+## Cursor
+
+```
+yay -S bibata-cursor-theme-bin
+cd /usr/share/icons/default
+sudo nano index.theme
+# [Icon Theme]
+# Inherits=Bibata-Modern-Classic
 ```
 
 
