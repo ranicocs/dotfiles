@@ -1,0 +1,28 @@
+# Env vars
+export PATH=$HOME/.local/bin:$PATH
+export _JAVA_AWT_WM_NONREPARENTING=1
+export QT_STYLE_OVERRIDE=kvantum 
+
+# Keyboard Layout
+setxkbmap es &
+
+# Wireless Mouse or Touchpad
+# ~/.config/scripts/mouse.sh &
+
+# Zsh config dir
+export ZDOTDIR=$HOME/.config/zsh
+
+# Bluetooth
+blueman-applet &
+
+# Screenshots
+flameshot &
+
+# Dropbox
+dropbox &
+
+# Night Light
+redshift -l -8.3960000:43.3713500 &
+
+# Hide the cursor
+xbanish &

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Obtén información sobre las particiones con tamaño mayor a 10G y sistema de archivos NTFS
+WINDOWS_PARTITION=$(lsblk -lno NAME,FSTYPE,SIZE | awk '$2 == "ntfs" && $3 > "10G" {print $1; exit}')
+MOUNT_DIRECTORY="/mnt/windows"
+
+# Verifica si se encontró una partición de Windows
+if [ -n "$WINDOWS_PARTITION" ]; then
+    # La partición de Windows se encuentra en: /dev/$WINDOWS_PARTITION
+
+    # Comprueba si el directorio de montaje existe
+    if [ ! -d "$MOUNT_DIRECTORY" ]; then
+        mkdir -p "$MOUNT_DIRECTORY"
+        echo "El directorio de montaje ha sido creado."
+    fi
+
+    sudo mount "/dev/$WINDOWS_PARTITION" "$MOUNT_DIRECTORY"
+    cd "$MOUNT_DIRECTORY"
+else
+    echo "No se pudo encontrar ninguna partición de Windows con más de 10 GB."
+fi
